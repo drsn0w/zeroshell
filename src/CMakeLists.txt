@@ -1,0 +1,6 @@
+add_library(shell STATIC shell.c)
+add_library(utils STATIC utils.c)
+target_include_directories(shell PUBLIC ${CMAKE_SOURCE_DIR}/include)
+target_include_directories(utils PUBLIC ${CMAKE_SOURCE_DIR}/include)
+add_executable(zeroshell main.c)
+target_link_libraries(zeroshell shell utils)

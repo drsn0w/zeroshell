@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.0)
+project(zeroshell VERSION 0.1 LANGUAGES C)
+set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
+add_subdirectory(src)
