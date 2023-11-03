@@ -22,7 +22,9 @@ void zeroshell_loop(char** env) {
                 printf("%s\n", env[pos]);
                 pos++;
             }
-        } 
+        } else if(input[0] == ((void*)0)) {
+            // If they enter nothing, do nothing
+        }
         else {
             zeroshell_launch(input, env);
         }
@@ -33,6 +35,7 @@ void zeroshell_loop(char** env) {
 void zeroshell_launch(char* input, char** env) {
     char** argv = utils_tokenize(input, " ");
     // Search path for program, error if not found
+    // Copy contents of path_env into path - if we strtok through the *path_env it will actually modify PATH inside the process' environment, which we do not want to do
     char* path_env = getenv("PATH");
     char* path = malloc(strlen(path_env));
     strcpy(path, path_env);
